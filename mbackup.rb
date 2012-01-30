@@ -1,9 +1,9 @@
-#!ruby
+#!/usr/bin/env ruby
 #-*- coding: utf-8 -*-
 require 'fileutils'
 
 local  = File.expand_path('~/Music/iTunes/iTunes\ Media/Music')
-remote = "/Volumes/Data-1/iTunes/iTunes\ Music2"
+remote = "/Volumes/Data/iTunes/iTunes\ Music2"
 
 puts 'local  : ' + local
 puts 'remote : ' + remote
@@ -22,6 +22,7 @@ Dir.glob("#{local}/**/*") do |lpath|
   # cp file
   puts rpath.sub(/^#{remote}\//, "")
   FileUtils.cp(lpath, rpath)
+  count += 1
 end
 
 puts "\n-- copied #{count} files --"
